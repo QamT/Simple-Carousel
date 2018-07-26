@@ -1,0 +1,292 @@
+:root {
+  --main-color: #659DBD;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: 10px;
+}
+
+body, .container, .carousel, .carousel-imgs {
+  height: 100vh;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+  user-select: none;
+}
+
+.container {
+  background: rgba(0, 0, 0, .5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Navbar */
+
+.nav {
+  position: absolute;
+  top: 1.8rem;
+  left: 0;
+  width: 100%;
+  padding: 1.4rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  margin: 0 1.6rem;
+  transition: color .3s;
+  line-height: 1.4;
+}
+
+.nav > a {
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  font-size: 2.2rem;
+}
+
+.nav-right {
+  font-size: 1.8rem;
+}
+
+.nav a:hover {
+  color: var(--main-color);
+}
+
+/* --- */
+
+/* Carousel */
+
+.carousel-imgs {
+  display: flex;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  transition: left 1s ease;
+}
+
+.carousel-imgs img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+/* --- */
+
+/* Carousel Controls */
+
+#prev::after, #next::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5.1rem;
+  height: 8.4rem;
+  font-size: 4.2rem;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: white;
+  line-height: 2em;
+  padding: .2em;
+  cursor: pointer;
+  text-align: center;
+  opacity: .7;
+  transition: opacity .3s linear;
+}
+
+#prev::after {
+  content: '<';
+  left: .8rem;
+}
+
+#next::after {
+  content: '>';
+  right: .8rem;
+}
+
+#prev:hover::after, #next:hover::after {
+  opacity: 1;
+}
+
+#prev:focus::after, #next:focus::after {
+  opacity: 1;
+}
+
+#dots {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 1rem;
+}
+
+.dot {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin: .3rem;
+  background: white;
+  border-radius: 50%;
+  opacity: .4;
+  transition: opacity .2s linear;
+  cursor: pointer;
+}
+
+.dot:hover {
+  opacity: .8;
+}
+
+.active {
+  opacity: 1;
+}
+
+/* --- */
+
+/* Info Box */
+
+.banner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 7px solid white;
+  border-radius: 5px;
+  color: white;
+  padding: 5rem 6rem;
+  text-align: center;
+  line-height: 1.5;
+  transition: all .7s;
+}
+
+.banner:hover {
+  border-color: var(--main-color);
+  background: rgba(0, 0, 0, .5);
+}
+
+.banner h2 {
+  font-size: 3.8rem;
+  font-weight: 400;
+  margin: 0;
+  padding-bottom: 3rem;
+  letter-spacing: 1.6rem;
+}
+
+.banner p {
+  font-size: 1.9rem;
+  margin: 0;
+  margin-bottom: .8rem;
+  line-height: 1.8;
+}
+
+/* --- */
+
+#side-menu {
+  display: none;
+}
+
+/* Media queries */
+
+@media(max-width: 1135px) {
+  .banner {
+    padding: 3rem 4rem;
+  }
+
+  .banner h2 {
+    font-size: 3rem;
+  }
+
+  .banner p{
+    font-size: 1.5rem;
+  }
+}
+
+@media(max-width: 870px) {
+
+  .banner {
+    padding: 2.5rem 3.5rem;
+  }
+ 
+  .banner h2 {
+    font-size: 2.6rem;
+  }
+
+  .banner p {
+    font-size: 1.2rem;
+  }
+}
+
+@media(max-width: 768px) {
+
+  #side-menu {
+    display: block;
+  }
+
+  .nav-right {
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: rgba(0, 0, 0, .7);
+    z-index: 1;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease-in-out;
+  }
+
+  .nav-right > a {
+    margin-bottom: 2rem;
+  }
+
+  .nav-right a:first-of-type {
+    margin-top: 2rem;
+  }
+
+  .collapsed {
+    max-height: 25rem;
+  }
+
+}
+
+@media(max-width: 600px) {
+  .banner {
+    padding: 1rem 1rem;
+  }
+ 
+  .banner h2 {
+    font-size: 2rem;
+    letter-spacing: .8rem;
+  }
+
+  .banner p {
+    font-size: 1rem;
+  }
+
+  #prev::after {
+    left: .5px;
+    padding: 0;
+  }
+  
+  #next::after {
+    right: .5px;
+    padding: 0;
+  }
+}
+
+/* ask about responsiveness about box and how to close hamburger menu when clicked outside */
+
+
+
+
+
